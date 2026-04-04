@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55744f6d29e42d418933a38707e0c11, type: 3}
+  m_Name: Matchables
+  m_EditorClassIdentifier: Assembly-CSharp::MatchableTypesSO
+  matchableTypes:
+  - matchableColor: {r: 0.17021184, g: 0.6323123, b: 0.8018868, a: 1}
+    matchableName: Blue
+  - matchableColor: {r: 0.8962264, g: 0.08877714, b: 0.80377495, a: 1}
+    matchableName: Pink
+  - matchableColor: {r: 0.8679245, g: 0.738887, b: 0.10234957, a: 1}
+    matchableName: Yellow
+  - matchableColor: {r: 0.2255344, g: 0.9150943, b: 0.056114297, a: 1}
+    matchableName: Green
