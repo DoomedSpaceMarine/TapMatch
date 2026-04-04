@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MatchableGrid
 {
-    private Grid<MatchableGridObject> grid;
+    public Grid<MatchableGridObject> grid;
 
     public MatchableGrid(int width, int height, float cellSize, Vector3 gridOriginPosition)
     {
