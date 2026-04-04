@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class InitGrid : MonoBehaviour
 {
+    private EventManager _eventManager;
+
     //Exposed grid values for easy modification
     [SerializeField] private int gridWidth;
     [SerializeField] private int gridHeight;
@@ -19,6 +21,8 @@ public class InitGrid : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _eventManager = FindFirstObjectByType<EventManager>();
+
         InitializeGrid();
     }
 
@@ -32,7 +36,9 @@ public class InitGrid : MonoBehaviour
         {
             for (int z = 0; z < gridHeight; z++)
             {
-                Instantiate(blankMatchable, grid.GetWorldPosition(x, z) + new Vector3(gridCellSize, gridCellSize) * 0.5f, blankMatchable.transform.rotation, gridItemHolder);
+                GameObject newMatchable = Instantiate(blankMatchable, grid.GetWorldPosition(x, z) + new Vector3(gridCellSize, gridCellSize) * 0.5f, blankMatchable.transform.rotation, gridItemHolder);
+                _eventManager.SetMatchableSize(newMatchable, gridCellSize);
+
             }
         }
     }
