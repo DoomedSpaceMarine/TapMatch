@@ -8,8 +8,10 @@ public class InitGrid : MonoBehaviour
     [SerializeField] private float gridCellSize;
     [SerializeField] private Vector3 originPosition;
 
+    //Prefab matchable
     [SerializeField] private GameObject blankMatchable;
 
+    //Game object that will be the parent of created matchables.
     [SerializeField] private Transform gridItemHolder;
 
     private Grid grid;
@@ -30,7 +32,7 @@ public class InitGrid : MonoBehaviour
         {
             for (int z = 0; z < gridHeight; z++)
             {
-                Instantiate(blankMatchable, grid.GetWorldPosition(x, z), blankMatchable.transform.rotation, gridItemHolder);
+                Instantiate(blankMatchable, grid.GetWorldPosition(x, z) + new Vector3(gridCellSize, gridCellSize) * 0.5f, blankMatchable.transform.rotation, gridItemHolder);
             }
         }
     }
