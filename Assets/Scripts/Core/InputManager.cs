@@ -48,6 +48,5 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         tapAction?.Disable();
-
     }
 }

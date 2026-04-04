@@ -51,7 +51,9 @@ public class Grid<T>
     public void SetGridValue(Vector3 position, T value)
     {
         int x;
-        int y;  
+        int y;
+        GetYX(position, out x, out y);
+        SetGridValue(x, y, value);
     }
 
     public int GetWidth()
@@ -101,6 +103,7 @@ public class Grid<T>
     {
         if (x >= 0 && y >= 0 && x < width && y < height)
         {
+            Debug.Log(gridArray[x, y]);
             return gridArray[x, y];
         }
         else

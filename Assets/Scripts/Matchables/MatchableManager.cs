@@ -9,6 +9,8 @@ public class MatchableManager : MonoBehaviour
     //List of different types of matchables
     [SerializeField] private List<Matchable> matchables = new List<Matchable>();
 
+   [SerializeField] private GridInitializer _gridInitializer;
+
     private void OnEnable()
     {
         _eventManager = FindFirstObjectByType<EventManager>();
@@ -22,10 +24,11 @@ public class MatchableManager : MonoBehaviour
         _eventManager.onSetMatchableSize -= SetMatchableSize;
     }
 
-    private void CreateRandomizedMatchable(SpriteRenderer matchableSprite)
+    private void CreateRandomizedMatchable(SpriteRenderer matchableSprite, Vector3 worldPosition)
     {
         int randomizedMatchable = Random.Range(0, matchables.Count);
         matchableSprite.color = matchables[randomizedMatchable].matchableColor;
+        _gridInitializer.grid.grid.SetGridValue(worldPosition, matchables[randomizedMatchable]);
     }
 
     private void SetMatchableSize(GameObject matchable, float gridSize)
