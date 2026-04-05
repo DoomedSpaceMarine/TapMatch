@@ -3,15 +3,36 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] private InitGrid _initGrid;
-    [SerializeField] private EventManager _eventManager;
+    private InitGrid _initGrid;
+    private EventManager _eventManager;
+
+    private bool canTap = true;
+
+    private void OnEnable()
+    {
+        _eventManager = FindFirstObjectByType<EventManager>();
+        _initGrid = FindFirstObjectByType<InitGrid>();
+
+        _eventManager.onCanPlayerTap += CanPlayerTap;
+    }
+
+    private void OnDisable()
+    {
+        _eventManager.onCanPlayerTap -= CanPlayerTap;
+    }
 
     void Update()
     {
-        if (InputManager.Instance.TapActionTriggered)
+        if (canTap && InputManager.Instance.TapActionTriggered)
         {
+            CanPlayerTap(false);
            _eventManager.RemoveMatchable(_initGrid.grid.GetMatchableFromGrid(GetMouseWorldPosition()));
         }
+    }
+
+    private void CanPlayerTap(bool enabled)
+    {
+        canTap = enabled;
     }
 
     //Get Mouse Position in World with Z = 0f

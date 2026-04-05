@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    //--Matchables--
+    //--MATCHABLES--
     //Create Randomized Matchable
     public event Action<GameObject> onCreateRandomizedMatchable;
     public void CreateRandomizedMatchable(GameObject matchableObject) => onCreateRandomizedMatchable?.Invoke(matchableObject);
@@ -13,4 +13,9 @@ public class EventManager : MonoBehaviour
     //Remove Matchable
     public event Action<GameObject> onRemoveMatchable;
     public void RemoveMatchable(GameObject matchableObject) => onRemoveMatchable?.Invoke(matchableObject);
+
+    //--INPUT HANDLER--
+    //Can player tap
+    public event Action<bool> onCanPlayerTap;
+    public void CanPlayerTap(bool enabled) => onCanPlayerTap?.Invoke(enabled);
 }
