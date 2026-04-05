@@ -13,6 +13,12 @@ public class EventManager : MonoBehaviour
     //Remove Matchable
     public event Action<GameObject> onRemoveMatchable;
     public void RemoveMatchable(GameObject matchableObject) => onRemoveMatchable?.Invoke(matchableObject);
+    //Add Connected Matchable to List
+    public event Action<GameObject> onAddConnectedMatchableToList;
+    public void AddConnectedMatchableToList(GameObject matchableObject) => onAddConnectedMatchableToList?.Invoke(matchableObject);
+    //Set Matchable Search Tag
+    public event Action<string> onSetMatchableSearchTag;
+    public void SetMatchableSearchTag(string searchTag) => onSetMatchableSearchTag?.Invoke(searchTag);
 
     //--INPUT HANDLER--
     //Can player tap
