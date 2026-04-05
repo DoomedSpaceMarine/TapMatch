@@ -16,7 +16,7 @@ public class InitGrid : MonoBehaviour
     //Game object that will be the parent of created matchables.
     [SerializeField] private Transform gridItemHolder;
 
-    private Grid grid;
+    public Grid grid;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,11 +34,12 @@ public class InitGrid : MonoBehaviour
         //Draw Matchables to Grid
         for (int x = 0; x < gridWidth; x++)
         {
-            for (int z = 0; z < gridHeight; z++)
+            for (int y = 0; y < gridHeight; y++)
             {
-                GameObject newMatchable = Instantiate(blankMatchable, grid.GetWorldPosition(x, z) + new Vector3(gridCellSize, gridCellSize) * 0.5f, blankMatchable.transform.rotation, gridItemHolder);
+                GameObject newMatchable = Instantiate(blankMatchable, grid.GetWorldPosition(x, y) + new Vector3(gridCellSize, gridCellSize) * 0.5f, blankMatchable.transform.rotation, gridItemHolder);
                 _eventManager.SetMatchableSize(newMatchable, gridCellSize);
                 _eventManager.CreateRandomizedMatchable(newMatchable);
+                grid.SetMatchableToGrid(x, y, newMatchable);
 
             }
         }
