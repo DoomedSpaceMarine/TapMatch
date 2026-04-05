@@ -38,6 +38,7 @@ public class InitGrid : MonoBehaviour
             {
                 GameObject newMatchable = Instantiate(blankMatchable, grid.GetWorldPosition(x, z) + new Vector3(gridCellSize, gridCellSize) * 0.5f, blankMatchable.transform.rotation, gridItemHolder);
                 _eventManager.SetMatchableSize(newMatchable, gridCellSize);
+                _eventManager.CreateRandomizedMatchable(newMatchable);
 
             }
         }

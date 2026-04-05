@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889183907b9cdb54db367b342348de0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchableManager
+  matchableTypesSO: {fileID: 11400000, guid: 6e62d8b2adb1ec746948c2aecf5e151a, type: 2}
 --- !u!4 &272042689
 Transform:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4433962, g: 0.30767557, b: 0.16941082, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
