@@ -541,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandler
   _initGrid: {fileID: 822211994}
+  _eventManager: {fileID: 1949299389}
 --- !u!4 &889078078
 Transform:
   m_ObjectHideFlags: 0

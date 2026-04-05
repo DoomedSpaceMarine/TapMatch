@@ -12,11 +12,13 @@ public class MatchableManager : MonoBehaviour
 
         _eventManager.onSetMatchableSize += SetMatchableSize;
         _eventManager.onCreateRandomizedMatchable += RandomizeMatchable;
+        _eventManager.onRemoveMatchable += RemoveMatchables;
     }
     private void OnDisable()
     {
         _eventManager.onSetMatchableSize -= SetMatchableSize;
         _eventManager.onCreateRandomizedMatchable -= RandomizeMatchable;
+        _eventManager.onRemoveMatchable -= RemoveMatchables;
     }
     private void SetMatchableSize(GameObject matchableSprite, float gridSize)
     {
@@ -28,5 +30,10 @@ public class MatchableManager : MonoBehaviour
         int randomType = Random.Range(0, matchableTypesSO.matchableTypes.Count);
         matchableObject.GetComponent<SpriteRenderer>().color = matchableTypesSO.matchableTypes[randomType].matchableColor;
         matchableObject.gameObject.tag = matchableTypesSO.matchableTypes[randomType].matchableName;
+    }
+
+    private void RemoveMatchables(GameObject matchableObject)
+    {
+        Destroy(matchableObject);
     }
 }

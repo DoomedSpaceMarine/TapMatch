@@ -4,13 +4,13 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private InitGrid _initGrid;
+    [SerializeField] private EventManager _eventManager;
 
     void Update()
     {
         if (InputManager.Instance.TapActionTriggered)
         {
-            //Debug 
-            _initGrid.grid.GetMatchableFromGrid(GetMouseWorldPosition());
+           _eventManager.RemoveMatchable(_initGrid.grid.GetMatchableFromGrid(GetMouseWorldPosition()));
         }
     }
 
